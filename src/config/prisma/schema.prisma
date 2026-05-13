@@ -31,3 +31,25 @@ model User {
   updatedAt DateTime @updatedAt
 }
 
+model Post {
+  id              String          @id @default(uuid())
+  url             String          @unique
+  platform        String          // Instagram, TikTok
+  kolName         String
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  engagementLogs  EngagementLog[]
+}
+
+model EngagementLog {
+  id        String   @id @default(uuid())
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  likes     Int      @default(0)
+  comments  Int      @default(0)
+  shares    Int      @default(0)
+  capturedAt DateTime @default(now())
+
+  @@index([postId, capturedAt])
+}
+

@@ -12,6 +12,7 @@ import articleRouter from "../routes/article.route";
 import authRouter from "../routes/authentication.route";
 import logger from './../logger'
 import { swaggerSpec } from '../config/swagger.config';
+import postRouter from "../routes/post.route";
 
 dotenv.config();
 
@@ -38,11 +39,11 @@ app.use('/admin/queues', serverAdapter.getRouter());
 
 // Route registration
 app.use('/api/v1', articleRouter);
+app.use('/api/', postRouter);
 app.use('/api/v1/auth', authRouter);
 
 
 function useApp() {
-
     app.get("/", (req: Request, res: Response) => {
         res.send("Ping successfully");
     });
