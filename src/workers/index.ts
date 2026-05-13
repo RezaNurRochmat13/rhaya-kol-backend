@@ -1,7 +1,8 @@
 import emailWorker from './email/email.worker';
+import scrappingWorker from './scrapper/scrapper.worker';
 import smsWorker from './sms/sms.worker';
 
-const allWorkers = [emailWorker, smsWorker];
+const allWorkers = [emailWorker, smsWorker, scrappingWorker];
 
 function setupWorkerListeners(worker: any, name: string) {
   worker.on('completed', (job: any) => {

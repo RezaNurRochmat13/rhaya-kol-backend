@@ -1,9 +1,7 @@
 import express from "express";
-import { useAuth } from "../middleware/auth.middleware";
 import { PostController } from "../controller/post.controller";
 
 const postRouter = express.Router();
-const { authenticate } = useAuth();
 
 const { createPost, getDashboardSummary } = PostController();
 

@@ -33,6 +33,10 @@ export function PostRepository() {
     });
   }
 
+  async function findAllPosts() {
+    return await prisma.post.findMany();
+  }
+
 
   async function createEngagementLog(postId: string, stats: any) {
     return await prisma.engagementLog.create({
@@ -44,6 +48,7 @@ export function PostRepository() {
     createPost,
     findPostByUrl,
     findPostsWithLogs,
+    findAllPosts,
     createEngagementLog,
   };
 }

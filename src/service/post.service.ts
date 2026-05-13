@@ -1,3 +1,4 @@
+import { scrapingQueue } from '../jobs/engagement/queue';
 import { PostRepository } from '../repository/post.repository';
 
 export function PostService() {
@@ -21,8 +22,13 @@ export function PostService() {
     return data;
   }
 
+  async function queueEngagementJob(postId: string, stats: any) {
+    return await scrapingQueue.add('scraping-tasks', { postId, url: stats.url });
+  }
+
   return {
     createKolPost,
     getDashboardKolSummary,
+    queueEngagementJob,
   };
 }

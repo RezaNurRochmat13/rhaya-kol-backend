@@ -8,6 +8,7 @@ import { BullMQAdapter } from '@bull-board/api/bullMQAdapter';
 import swaggerUi from 'swagger-ui-express';
 import { emailQueue } from "../jobs/email/queue";
 import { smsQueue } from "../jobs/sms/queue";
+import { scrapingQueue } from "../jobs/engagement/queue";
 import articleRouter from "../routes/article.route";
 import authRouter from "../routes/authentication.route";
 import logger from './../logger'
@@ -31,6 +32,7 @@ createBullBoard({
   queues: [
     new BullMQAdapter(emailQueue),
     new BullMQAdapter(smsQueue),
+    new BullMQAdapter(scrapingQueue),
   ],
   serverAdapter,
 });
