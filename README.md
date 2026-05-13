@@ -1,6 +1,6 @@
-# Express Boilerplate Example
+# Rhayaflicks KOL Backend
 
-Express Boilerplate Example
+This is a backend for Rhayaflicks KOL project.
 
 ## Installation
 
@@ -8,7 +8,7 @@ Install the dependencies and devDependencies using the following command:
 
 ```bash
 - Clone the repository
-- cd express-boilerplate-example
+- cd kol-backend
 - pnpm install
 ```
 
@@ -17,7 +17,7 @@ Install the dependencies and devDependencies using the following command:
 Start the server using the following command:
 
 ```bash
-- cd express-boilerplate-example
+- cd kol-backend
 - pnpm dev
 ```
 
