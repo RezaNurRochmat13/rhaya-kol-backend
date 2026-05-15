@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "prisma": {
+    "seed": "ts-node --transpile-only src/config/prisma/seed.ts"
+  },
   "scripts": {
     "build": "npx tsc",
     "start": "node build/index.js",
@@ -10,6 +13,7 @@
     "db:generate": "npx prisma generate --schema ./src/config/prisma",
     "db:generate:schema": "npx prisma generate --schema ./src/config/prisma/schema.prisma",
     "db:migrate": "npx prisma migrate dev --name init --schema ./src/config/prisma/schema.prisma",
+    "db:seed": "npx prisma db seed --schema ./src/config/prisma/schema.prisma",
     "test:db": "npx prisma db push --schema=./src/config/prisma/schema.prisma",
     "test": "NODE_ENV=test jest --runInBand",
     "test:full": "npm run test:db && npm run test",
